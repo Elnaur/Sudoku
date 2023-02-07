@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:background="@color/black"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/stripTop"
+            style="@style/Strip">
+
+            <TableLayout
+                android:id="@+id/blockTopLeft"
+                style="@style/Block">
+
+                <TableRow
+                    android:id="@+id/row1Left"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r1c1"
+                        style="@style/Cell"/>
+
+                    <TextView
+                        android:id="@+id/r1c2"
+                        style="@style/Cell"/>
+
+                    <TextView
+                        android:id="@+id/r1c3"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row2Left"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r2c1"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r2c2"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r2c3"
+                        style="@style/Cell" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row3Left"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r3c1"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r3c2"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r3c3"
+                        style="@style/Cell" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/blockTop"
+                style="@style/Block">
+
+                <TableRow
+                    android:id="@+id/row1Mid"
+                    style="@style/Row">
+
+                    <TextView
+                        android:id="@+id/r1c4"
+                        style="@style/Cell"/>
+
+                    <TextView
+                        android:id="@+id/r1c5"
+                        style="@style/Cell"/>
+
+                    <TextView
+                        android:id="@+id/r1c6"
+                        style="@style/Cell" />
+                </TableRow>
+
+
+
+                <TableRow
+                    android:id="@+id/row2Mid"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r2c4"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r2c5"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r2c6"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row3Mid"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r3c4"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r3c5"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r3c6"
+                        style="@style/Cell" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/blockTopRight"
+                style="@style/Block">
+
+                <TableRow
+                    android:id="@+id/row1Right"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r1c7"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r1c8"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r1c9"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row2Right"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r2c7"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r2c8"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r2c9"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row3Right"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r3c7"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r3c8"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r3c9"
+                        style="@style/Cell" />
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/stripMiddle"
+            style="@style/Strip">
+
+            <TableLayout
+                android:id="@+id/blockLeft"
+                style="@style/Block">
+
+                <TableRow
+                    android:id="@+id/row4Left"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r4c1"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r4c2"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r4c3"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row5Left"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r5c1"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r5c2"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r5c3"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row6Left"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r6c1"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r6c2"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r6c3"
+                        style="@style/Cell" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/blockCentre"
+                style="@style/Block">
+
+                <TableRow
+                    android:id="@+id/row4Mid"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r4c4"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r4c5"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r4c6"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row5Mid"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r5c4"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r5c5"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r5c6"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row6Mid"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r6c4"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r6c5"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r6c6"
+                        style="@style/Cell" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/blockRight"
+                style="@style/Block">
+
+                <TableRow
+                    android:id="@+id/row4Right"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r4c7"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r4c8"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r4c9"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row5Right"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r5c7"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r5c8"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r5c9"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row6Right"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r6c7"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r6c8"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r6c9"
+                        style="@style/Cell" />
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/stripBottom"
+            style="@style/Strip">
+
+            <TableLayout
+                android:id="@+id/blockBottomLeft"
+                style="@style/Block">
+
+                <TableRow
+                    android:id="@+id/row7Left"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r7c1"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r7c2"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r7c3"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row8Left"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r8c1"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r8c2"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r8c3"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row9Left"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r9c1"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r9c2"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r9c3"
+                        style="@style/Cell" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/blockBottom"
+                style="@style/Block">
+
+                <TableRow
+                    android:id="@+id/row7Mid"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r7c4"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r7c5"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r7c6"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row8Mid"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r8c4"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r8c5"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r8c6"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row9Mid"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r9c4"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r9c5"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r9c6"
+                        style="@style/Cell" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/blockBottomRight"
+                style="@style/Block">
+
+                <TableRow
+                    android:id="@+id/row7Right"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r7c7"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r7c8"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r7c9"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row8Right"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r8c7"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r8c8"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r8c9"
+                        style="@style/Cell" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row9Right"
+                    style="@style/Row" >
+
+                    <TextView
+                        android:id="@+id/r9c7"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r9c8"
+                        style="@style/Cell" />
+
+                    <TextView
+                        android:id="@+id/r9c9"
+                        style="@style/Cell" />
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
