@@ -33,4 +33,12 @@
         <item name="android:layout_weight">1</item>
     </style>
 
+    <style name="Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/design_default_color_primary</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
 </resources>
