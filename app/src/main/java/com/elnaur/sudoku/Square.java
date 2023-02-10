@@ -1,8 +1,5 @@
 package com.elnaur.sudoku;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Square {
 
     private final int across;
@@ -10,7 +7,6 @@ public class Square {
     private final int region;
     private final int value;
     private final int index;
-
     private final int size;
 
     public Square(int indx, int val, int sz) {
@@ -18,9 +14,8 @@ public class Square {
         value = val;
         size = sz;
 
-        indx++;
-        across = getAcrossFromNum(indx);
-        down = getDownFromNum(indx);
+        across = getAcrossFromNum();
+        down = getDownFromNum();
         region = getRegionFromNum();
     }
 
@@ -40,9 +35,11 @@ public class Square {
         return value;
     }
 
-    private int getAcrossFromNum(int indx) {
+    private int getAcrossFromNum() {
         int k;
-        k = indx % size;
+        int i = index + 1;
+
+        k = i % size;
         if (k == 0) {
             return size;
         } else {
@@ -50,20 +47,21 @@ public class Square {
         }
     }
 
-    private int getDownFromNum(int indx) {
+    private int getDownFromNum() {
         int k;
+        int i = index + 1;
+
         if (across == size) {
-            k = indx/across;
+            k = i/size;
         } else {
-            k = indx/across + 1;
+            k = i/size + 1;
         }
 
         return k;
-
     }
 
     private int getRegionFromNum() {
-        // NB NOTE THIS CODE ONLY WORKS FOR 9 BECAUSE IT'S TOO INEFFIENT TO TRY AND MAKE IT WORK
+        // NB NOTE THIS CODE ONLY WORKS FOR 9 BECAUSE IT'S TOO INEFFICIENT TO TRY AND MAKE IT WORK
         // FOR OTHER NUMBERS. IF NEEDED THIS IS THE ONLY PART THAT NEEDS TO BE ADJUSTED TO ALLOW
         // SUDOKU GRIDS OF DIFFERENT SIZES.
         // TODO: Make code less gross

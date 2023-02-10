@@ -1,8 +1,5 @@
 package com.elnaur.sudoku;
 
-
-import java.util.Arrays;
-
 /**
  * A generator to generate a complete Sudoku grid and then remove values so that it can be solved.
  * Based off of The ANZAC's 0.018s algorithm to generate a valid Sudoku grid. Found at
@@ -11,8 +8,8 @@ import java.util.Arrays;
 public class SudokuGenerator {
 
     final private int totalCells = 81;
-    final private int sideLength = 10;  // Sidelength is 10, not 9 to allow for easy indexing
-                                        // Index 0 is used to indicate if array is empty or not.
+    final private int sideLength = 10;  // Side length is 10, not 9 to allow for easy indexing
+    // Index 0 is used to indicate if array is empty or not.
     private final Square[] squares;
     private final int[][] completeSudokuGrid;
     private final int[][] incompleteSudokuGrid;
@@ -20,11 +17,11 @@ public class SudokuGenerator {
     /**
      * 2D array that holds possible values for each cell. A true value indicates that
      */
-    private final boolean[][] available;
+    private final int[][] available;
 
     public SudokuGenerator() {
         squares = new Square[totalCells];    // Leave uninitialised for now
-        available = new boolean[totalCells][sideLength];
+        available = new int[totalCells][sideLength];
 
         completeSudokuGrid = generateComplete();
         incompleteSudokuGrid = generateClues();
@@ -34,40 +31,58 @@ public class SudokuGenerator {
         int count = 0;
 
         for (int i = 0; i < totalCells; i++) {
-            Arrays.fill(available[i], true);    // Index 0 is filled too, to indicate array is not empty
+            resetSquare(available[i]);
         }
 
         while (count < totalCells) {
-            if (!available[count][0]) {
+            if (available[count][0] > 0) {  // If there are still available numbers
                 int num = getRandomAvailable(available[count]);
-                count++;
+                Square square = new Square(count, num, sideLength - 1); // Create tentative square to insert
 
-                Square square = new Square(count, num, sideLength); // Create tentative square to insert
-
-                if (!conflicts(square)) { // Check if proposed number conflicts
-                    // It works so add the value to avilable numbers for that square
-                    available[count][num] = false;  // remove it from its individual list
+                // Check if proposed number conflicts
+                if (!conflicts(square)) {
+                    squares[count] = square;    // It works so add the value to available numbers for that square
+                    remove(count, num);         // remove it from its individual list
                     count++;
+
                 } else {
-                    available[count][num] = false;  // number conflicts so remove it
+                    remove(count, num); // number conflicts so remove it
                 }
-            } else {
-                Arrays.fill(available[count], true);    // Reset current square by resetting its available values
+
+            } else {    // If no available numbers, backtrack
+                resetSquare(available[count]);    // Reset current square by resetting its available values
                 squares[count - 1] = null;
                 count--;        // Backtrack to try different number in previous square
             }
         }
 
         int c = 0;
-        int[][] sudokuGrid = new int[9][9];
-        for (int i = 0; i < sideLength; i++) {
-            for (int j = 0; j < sideLength; j++) {
+        int[][] sudokuGrid = new int[sideLength - 1][sideLength - 1];
+        for (int i = 0; i < sideLength - 1; i++) {
+            for (int j = 0; j < sideLength - 1; j++) {
                 sudokuGrid[i][j] = squares[c].getValue();   // Insert the valid value into its space in the sudoku grid
                 c++;
             }
         }
 
         return sudokuGrid;
+    }
+
+    private void remove(int index, int num) {
+        available[index][num] = 0;  // number conflicts so remove it
+        available[index][0]--;
+    }
+
+    /**
+     * Short helper method that sets the first index to max about of available
+     * numbers and resets other numbers as available
+     * @param arr   The array holding available numbers to be reset
+     */
+    private void resetSquare(int[] arr) {
+        arr[0] = 9;    // First index has count of available values
+        for (int j = 1; j < sideLength; j++) {
+            arr[j] = j;
+        }
     }
 
     private int[][] generateClues() {
@@ -89,21 +104,21 @@ public class SudokuGenerator {
      * @param available Cell's available numbers
      * @return  A random available number
      */
-    private int getRandomAvailable(boolean[] available) {
+    private int getRandomAvailable(int[] available) {
         int num;
         int[] nums = new int[sideLength - 1];  // Just need 9 indexes
         int c = 0;
         double r;
-        
+
         for (int i = 1; i < sideLength; i++) {
-            if (available[i]) {
+            if (available[i] != 0) {
                 nums[c] = i;
                 c++;
             }
         }
 
         r = Math.random();
-        num = nums[(int) Math.round(r * c)];
+        num = nums[(int) Math.round(r * (c - 1))];
 
         return num;
     }
@@ -116,13 +131,15 @@ public class SudokuGenerator {
      */
     private boolean conflicts(Square testSquare) {
         for (Square square : squares) {
-            if ((square.getAcross() > 0 && square.getAcross() == testSquare.getAcross()) ||
-                    (square.getDown() > 0 && square.getDown() == testSquare.getDown()) ||
-                    (square.getRegion() > 0 && square.getRegion() == testSquare.getRegion())) {
-                if (square.getValue() == testSquare.getValue()) {
-                    return true;
-                }
+            if (square != null) {
+                if ((square.getAcross() != 0 && square.getAcross() == testSquare.getAcross()) ||
+                        (square.getDown() != 0 && square.getDown() == testSquare.getDown()) ||
+                        (square.getRegion() != 0 && square.getRegion() == testSquare.getRegion())) {
 
+                    if (square.getValue() == testSquare.getValue()) {
+                        return true;
+                    }
+                }
             }
         }
 
